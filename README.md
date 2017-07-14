@@ -112,7 +112,7 @@ container
 ```
 import React from 'react'
 
-import TreeRenderer from from 'react-tree-renderer'
+import TreeRenderer from 'react-tree-renderer'
 import DefaultTemplate from './DefaultTemplate'
 
 
