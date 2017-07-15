@@ -1,5 +1,8 @@
 # react-tree-renderer
+
 A tree render component for react, I want some component to render a tree without considering how to nest them, just provide the Template for One tree node. So come this project
+
+With this you can easily customise a treeview, a json editor, or anything tree alike
 
 ## usage
 
