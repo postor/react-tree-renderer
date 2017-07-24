@@ -5,6 +5,7 @@ A tree render component for react, I want some component to render a tree withou
 With this you can easily customise a treeview, a json editor, or anything tree alike
 
 demo: http://nextjs.i18ntech.com/components/treerenderer
+demo source: https://github.com/nextjs-boilerplate/components/tree/master/components/react-tree-renderer
 
 ## usage
 
