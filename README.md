@@ -2,7 +2,11 @@
 
 A tree render component for react, I want some component to render a tree without considering how to nest them, just provide the Template for One tree node. So come this project
 
+项目的由来：我希望在React中渲染一个任意的树形结构，而不需要去考虑如何去嵌套每个层级，只需要提供一个根节点的数据和一个渲染模板
+
 With this you can easily customise a treeview, a json editor, or anything tree alike
+
+通过这个树形结构渲染工具，你可以轻松实现一个treeview（层级菜单、文件夹结构等）或者JSON编辑器等
 
 demo: http://nextjs.i18ntech.com/components/treerenderer
 demo source: https://github.com/nextjs-boilerplate/components/tree/master/components/react-tree-renderer
