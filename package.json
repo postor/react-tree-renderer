@@ -1,7 +1,7 @@
 {
   "name": "react-tree-renderer",
-  "version": "1.0.5",
-  "description": "a tree render component for react",
+  "version": "1.0.6",
+  "description": "A tree render component for react | react的树状渲染组件",
   "main": "dest/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,8 +11,14 @@
     "type": "git",
     "url": "git+https://github.com/nextjs-boilerplate/react-tree-renderer.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "react",
+    "treeview",
+    "nested-structures",
+    "template",
+    "son-editor"
+  ],
+  "author": "postor@gmail.com",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/nextjs-boilerplate/react-tree-renderer/issues"

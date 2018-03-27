@@ -1,8 +1,10 @@
 # react-tree-renderer
 
-A tree render component for react, I want some component to render a tree without considering how to nest them, just provide the Template for One tree node. So come this project
+A tree render component for react | react的树状渲染组件
 
-项目的由来：我希望在React中渲染一个任意的树形结构，而不需要去考虑如何去嵌套每个层级，只需要提供一个根节点的数据和一个渲染模板
+I want some component to render a tree without considering how to nest them, just provide the Template for One tree node. So come this project
+
+我希望在React中渲染一个任意的树形结构，而不需要去考虑如何去嵌套每个层级，只需要提供一个根节点的数据和一个渲染模板
 
 With this you can easily customise a treeview, a json editor, or anything tree alike
 
@@ -11,22 +13,24 @@ With this you can easily customise a treeview, a json editor, or anything tree a
 demo: http://nextjs.i18ntech.com/components/treerenderer
 demo source: https://github.com/nextjs-boilerplate/components/tree/master/components/react-tree-renderer
 
-## usage
+## usage | 使用
 
-install
+install | 安装
 
 ```
 npm install react-tree-renderer --save
 
-# or
+# or | 或
 
 yarn add react-tree-renderer
 ```
 
-### simply show
+### simply show | 简单显示
 
 ```
 import TreeRenderer from 'react-tree-renderer'
+
+//data, use children to nest nodes | 要展示的数据，使用children属性来嵌套数据
 const root = {
     title: 'root',
     children: [
@@ -50,7 +54,10 @@ const root = {
     ],
 }
 
+//template for one node | 对应一个节点的渲染模板
 const Template = (props) => {
+    //data from props, data is a node from the root, children is the templated views of data.children
+    //从props获取data，data为root中的一个节点，children则是对应data.children经过模板转换的视图列表
     const { data = {}, children = [], } = props
     return (
         <div>
@@ -62,6 +69,7 @@ const Template = (props) => {
     )
 }
 
+//as a tree | 渲染整个树状结构
 export default (props)=>(
   <TreeRenderer Template={Template} data={root} />
 )
@@ -69,25 +77,31 @@ export default (props)=>(
 ```
 ![example screenshot](./images/a-show.png)
 
-### with data updating
+### with data updating | 同时需要更新数据
 
-Template
+in this example, you can modify the titles and add new nodes | 在这个例子中，演示了修改每个节点的title和增加新节点
+
+Template | 模板
 
 ```
 import React from 'react'
 
 export default class DefaultTemplate extends React.Component {
 
+  //modify title | 修改title
   handleUpdateTitle(e) {
+    // get updateData from props | 从props中获取updateData
     const { data = {}, updateData, } = this.props
     const title = e.target.value
 
+    // and call updateData when you need | 并使用updateData方法更新对应节点的数据
     updateData({
       ...data,
       title
     })
   }
 
+  //add new node | 增加新节点
   handleAddChild() {
     const { data = {}, updateData, } = this.props
     const { children = [] } = data
@@ -117,7 +131,7 @@ export default class DefaultTemplate extends React.Component {
 }
 ```
 
-container
+container | 容器
 
 ```
 import React from 'react'
@@ -125,10 +139,7 @@ import React from 'react'
 import TreeRenderer from 'react-tree-renderer'
 import DefaultTemplate from './DefaultTemplate'
 
-
-
 export default class TestTree extends React.Component {
-
   constructor(props, ctx) {
     super(props, ctx)
     this.state = {
@@ -143,31 +154,29 @@ export default class TestTree extends React.Component {
     }
   }
 
-  onUpdateData(root) {
-    this.setState(
-      { root, }
-    )
-  }
-
   render() {
-    const onUpdateData = this.onUpdateData.bind(this)
     const { root = {} } = this.state
 
-    return (<TreeRenderer Template={DefaultTemplate} data={root} onUpdateData={onUpdateData} />)
-
+    //pass onUpdateData to TreeRenderer to handle data change | 给TreeRenderer传递onUpdateData来处理数据变化
+    return (<TreeRenderer Template={DefaultTemplate} data={root} onUpdateData={(root) => this.setState({ root, })} />)
   }
 }
 ```
 
 ![example screenshot](./images/a-update.png)
 
-### with event
+### with event | 使用事件
+
+sometimes we have more things to do besides updating data of the corresponding node, but parent or sibling or the whole tree, then you can use event
+
+有时候你不止需要更新对应节点的数据，可能是上层的同级别的或者整个树，这时候你可以用event
 
 Template
 
 ```
 import React from 'react'
 
+//define your own events | 自定义事件类型
 export const eventTypes = {
   closeAll: 'closeAll',
   openAll: 'openAll'
@@ -177,7 +186,6 @@ export default class DefaultTemplate extends React.Component {
 
   handleOpen(isOpen) {
     const { data = {}, updateData, } = this.props
-
     updateData({
       ...data,
       isOpen,
@@ -185,6 +193,7 @@ export default class DefaultTemplate extends React.Component {
   }
 
   handleOpenAll(isOpen) {
+    //use treeEvent from props to fire an event | 使用props中的treeEvent来触发一个事件
     const { treeEvent } = this.props
     treeEvent(isOpen ? eventTypes.openAll : eventTypes.closeAll)
   }
@@ -220,8 +229,6 @@ import React from 'react'
 
 import { default as TreeRenderer, pathGet, pathMerge } from 'react-tree-renderer'
 import { default as DefaultTemplate, eventTypes } from './DefaultTemplate'
-
-
 
 export default class TestTree extends React.Component {
 
@@ -308,8 +315,8 @@ export default class TestTree extends React.Component {
     const onTreeEvent = this.onTreeEvent.bind(this)
     const { root = {} } = this.state
 
+    //pass onTreeEvent handle to TreeRenderer | 给TreeRenderer传递处理函数onTreeEvent
     return (<TreeRenderer Template={DefaultTemplate} data={root} onUpdateData={onUpdateData} onTreeEvent={onTreeEvent} />)
-
   }
 }
 ```
