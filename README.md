@@ -10,8 +10,8 @@ With this you can easily customise a treeview, a json editor, or anything tree a
 
 通过这个树形结构渲染工具，你可以轻松实现一个treeview（层级菜单、文件夹结构等）或者JSON编辑器等
 
-demo: http://nextjs.i18ntech.com/components/treerenderer
-demo source: https://github.com/nextjs-boilerplate/components/tree/master/components/react-tree-renderer
+![screenshot](https://img.youtube.com/vi/P011GNWfDvs/0.jpg)
+watch on youtube https://youtu.be/P011GNWfDvs
 
 ## usage | 使用
 
