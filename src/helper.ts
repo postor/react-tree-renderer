@@ -6,13 +6,14 @@
  * @param {any} toMerge 
  * @returns 
  */
-export function pathMerge(obj, pathStr, toMerge) {
+export function pathMerge(obj: object, pathStr: string|undefined, toMerge: object) {
   if (!pathStr) return toMerge
 
   const pathArr = pathStr.split('.')
-  const lastPath = pathArr.pop()
+  // @ts-ignore
+  const lastPath: string = pathArr.pop()
   const tobj = { ...obj }
-  const lastBranch = pathArr.reduce((o, p) => {
+  const lastBranch = pathArr.reduce((o: any, p: string) => {
     !o[p] && (o[p] = {})
     if (Array.isArray(o[p])) {
       o[p] = [...o[p]]
@@ -34,12 +35,11 @@ export function pathMerge(obj, pathStr, toMerge) {
  * @param {any} pathStr 
  * @returns 
  */
-export function pathGet(obj, pathStr) {
-  if(!pathStr) return obj
-    
+export function pathGet(obj: object, pathStr: string) {
+  if (!pathStr) return obj
+
   const pathArr = pathStr.split('.')
-  var tmp = obj
-  return pathArr.reduce((tmp, p) => {
+  return pathArr.reduce((tmp: any, p) => {
     if (tmp === null) return null
     if (typeof tmp[p] === 'undefined') return null
     return tmp[p]

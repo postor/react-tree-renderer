@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { Component } from 'react'
 import getChildren from './children'
 
-class TreeNode extends React.Component {
+type Props = {
+  data?: object,
+  path?: string,
+  onUpdateData: (path: string|undefined, node: object) => void,
+  Template: any,
+  onTreeEvent: (eventStr: string, obj: object, path: string|undefined) => void,
+}
+
+class TreeNode extends Component<Props> {
 
   render() {
     const { data = {}, path, onUpdateData, onTreeEvent, Template, } = this.props
@@ -21,17 +29,15 @@ class TreeNode extends React.Component {
     />)
   }
 
-  updateData(node) {
+  updateData(node: object) {
     const { path, onUpdateData } = this.props
     onUpdateData(path, node)
   }
 
-  treeEvent(eventStr, obj) {
+  treeEvent(eventStr: string, obj: object) {
     const { path, onTreeEvent } = this.props
     onTreeEvent(eventStr, obj, path)
   }
 }
-
-
 
 export default TreeNode
