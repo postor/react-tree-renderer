@@ -8,6 +8,8 @@ export default ({
   onTreeEvent,
   Template,
   path = '',
+  deleteChildAt,
+  updateMyData,
 }) => {
   if (!data.children) {
     return []
@@ -20,6 +22,8 @@ export default ({
       data={data}
       onUpdateData={onUpdateData}
       onTreeEvent={onTreeEvent}
+      onDelete={() => deleteChildAt(i)}
+      onUpdateParent={updateMyData}
       Template={Template}
       path={`${pathPrifix}children.${i}`}
     />)

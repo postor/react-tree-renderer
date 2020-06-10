@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import TreeNode from './TreeNode'
-import { pathMerge } from './helper'
+import { pathMerge, TreeData } from './helper'
 
 type Props = {
   onTreeEvent: (eventStr: string, eventData: object, path: string | undefined) => void
-  data: object,
+  data: TreeData,
   Template: any,
   onUpdateData: (updated: object) => void
 }
@@ -13,11 +13,18 @@ type Props = {
 class TreeContainer extends Component<Props> {
   render() {
     const { data, Template, onTreeEvent } = this.props
+
     return (<TreeNode
       data={data}
       onUpdateData={this.onUpdateData.bind(this)}
       onTreeEvent={onTreeEvent}
       Template={Template}
+      onDelete={() => {
+        throw 'trying to delete root node'
+      }}
+      onUpdateParent={() => {
+        throw 'trying to update parent of root'
+      }}
     />)
   }
 

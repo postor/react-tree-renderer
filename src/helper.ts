@@ -1,12 +1,12 @@
-/**
- * 按路径合入数据 
- * 
- * @param {any} obj 
- * @param {any} pathStr 
- * @param {any} toMerge 
- * @returns 
- */
-export function pathMerge(obj: object, pathStr: string|undefined, toMerge: object) {
+
+export type TreeData = {
+  [key: string]: any
+  children?: TreeData[]
+}
+
+export type TreeDataUpdateFn =(fn: (old: TreeData) => TreeData) => void
+
+export function pathMerge(obj: object, pathStr: string | undefined, toMerge: object) {
   if (!pathStr) return toMerge
 
   const pathArr = pathStr.split('.')
@@ -26,15 +26,6 @@ export function pathMerge(obj: object, pathStr: string|undefined, toMerge: objec
   return tobj
 }
 
-/**
- * 
- * 按路径获取
- * 
- * @export
- * @param {any} obj 
- * @param {any} pathStr 
- * @returns 
- */
 export function pathGet(obj: object, pathStr: string) {
   if (!pathStr) return obj
 
