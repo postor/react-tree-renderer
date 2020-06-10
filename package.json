@@ -1,7 +1,6 @@
 {
   "name": "react-tree-renderer",
   "version": "2.0.0",
-  "private": true,
   "dependencies": {
     "react": "^16.13.1"
   },
@@ -24,7 +23,7 @@
     ]
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "index.js",
+  "main": "dist/index.js",
   "directories": {
     "example": "examples"
   },
