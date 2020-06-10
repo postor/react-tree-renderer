@@ -12,7 +12,8 @@ const pages = {
 
 let aStyle = {
   border: '1px solid black',
-  margin: '0 10 px'
+  margin: '0 10px',
+  display: 'inline-block'
 }
 
 function MyApp({ Component, pageProps }) {

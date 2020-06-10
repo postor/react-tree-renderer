@@ -42,7 +42,7 @@ class TreeNode extends Component<Props> {
       treeEvent={this.treeEvent.bind(this)}
       updateParent={onUpdateParent}
       children={children}
-      delete={onDelete}
+      deleteMe={onDelete}
       addChildren={(children: TreeData[]) => this.updateData({
         ...data,
         children: (data.children || []).concat(children)

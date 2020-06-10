@@ -1,10 +1,22 @@
+import { ReactNode } from 'react'
 
 export type TreeData = {
   [key: string]: any
   children?: TreeData[]
 }
 
-export type TreeDataUpdateFn =(fn: (old: TreeData) => TreeData) => void
+export type TreeDataUpdateFn = (fn: (old: TreeData) => TreeData) => void
+
+export type TemplateProps = {
+  data: TreeData
+  i: number | undefined
+  updateData: (data: TreeData) => void
+  treeEvent: (eventStr: string, customEventData?: any) => void
+  updateParent: TreeDataUpdateFn
+  children: ReactNode[]
+  deleteMe: () => void
+  addChildren: (data: TreeData) => void
+}
 
 export function pathMerge(obj: object, pathStr: string | undefined, toMerge: object) {
   if (!pathStr) return toMerge
