@@ -26,6 +26,7 @@ export default ({
       onUpdateParent={updateMyData}
       Template={Template}
       path={`${pathPrifix}children.${i}`}
+      i={i}
     />)
   })
 }

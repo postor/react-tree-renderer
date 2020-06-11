@@ -4,7 +4,7 @@ import TreeRenderer from 'react-tree-renderer'
 class DefaultTemplate extends React.Component {
 
   render() {
-    const { data = {}, children = [], deleteMe, } = this.props
+    const { data = {}, children = [], deleteMe, isRoot } = this.props
 
     return (
       <div>
@@ -12,7 +12,7 @@ class DefaultTemplate extends React.Component {
         <ul>
           {children.map((x, i) => (<li key={i}>{x}</li>))}
         </ul>
-        <button onClick={() => deleteMe()}>x</button>
+        {!isRoot && <button onClick={() => deleteMe()}>x</button>}
       </div>
     )
   }
