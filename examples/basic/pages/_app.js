@@ -6,8 +6,7 @@ const pages = {
   'update self': '/update-self',
   'add child': '/add-child',
   'delete self': '/delete-self',
-  'update parent': '/delete-self',
-  'use event': '/use-event',
+  'update parent': '/update-parent',
 }
 
 let aStyle = {
