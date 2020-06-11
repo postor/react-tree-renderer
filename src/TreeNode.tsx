@@ -47,6 +47,7 @@ class TreeNode extends Component<Props> {
         ...data,
         children: (data.children || []).concat(children)
       })}
+      isRoot={i === undefined}
     />)
   }
 

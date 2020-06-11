@@ -20,10 +20,10 @@ class TreeContainer extends Component<Props> {
       onTreeEvent={onTreeEvent}
       Template={Template}
       onDelete={() => {
-        throw 'trying to delete root node'
+        console.log('trying to delete root node')
       }}
       onUpdateParent={() => {
-        throw 'trying to update parent of root'
+        console.log('trying to update parent of root')
       }}
     />)
   }

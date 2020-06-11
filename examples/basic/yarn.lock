@@ -4519,10 +4519,10 @@ react-refresh@0.8.3:
   resolved "https://registry.npmjs.org/react-refresh/-/react-refresh-0.8.3.tgz#721d4657672d400c5e3c75d063c4a85fb2d5d68f"
   integrity sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg==
 
-react-tree-renderer@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.npmjs.org/react-tree-renderer/-/react-tree-renderer-2.0.1.tgz#9b215bfbe89f089355ebcd66999aeb512bd9bcd9"
-  integrity sha512-tG9DUMr6F00GXy15qBKtgHHgJHvOPi4iKWMOtYxSWuMs9pY7oBCDsk80RSLcvp3qeCV7aOKfijZKbTly4FgHBg==
+react-tree-renderer@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.npmjs.org/react-tree-renderer/-/react-tree-renderer-2.0.2.tgz#46b02211f103df13eb44e91c55b33bf94b0f933b"
+  integrity sha512-8rAHwp4lf7nDYqcXnVyqOP4nyngDMhN93WZbKslQjZsDuIojnmksgPuQGwEN8VHWWIymmc9ABvngETVBcucY4w==
   dependencies:
     react "^16.13.1"
 
