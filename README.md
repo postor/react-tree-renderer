@@ -25,6 +25,58 @@ npm install react-tree-renderer --save
 yarn add react-tree-renderer
 ```
 
+code
+
+```
+<TreeRenderer Template={Template} data={root} />
+```
+
+### data
+
+object with data look like self in children nodes | `children`包含和自身类似结构的对象
+
+```
+{
+  title: 'root',
+  children: [
+    {
+      title: 'test1',
+    }
+  ]
+}
+```
+
+### Template
+
+Component to show one node | 用于显示一个节点的组件
+
+props ready for use in Template explained in comments | Template可以使用的 props 在注释中描述
+
+```
+const Template = (props) => {
+    // props ready for use in Template | Template可以使用的 props 
+    const { 
+      data = {},  // data for current node | 当前节点的数据
+      children = [], // rendered children | 渲染后的子节点
+      deleteMe, // function to delete this node | 删除本节点的函数
+      addChildren // add children to this node | 批量添加下级节点的函数
+      isRoot, // tell if this node is root | 判断此节点是否为 root
+      i, // index of current node in sblings, root got undefined | 在同辈中的顺序索引，根节点为 undefined
+      updateData, // function to update this node's data | 更新本节点数据的函数
+      treeEvent, // function to trigger an event | 发起事件的函数
+      updateParent, // function to update parent node's data | 更新父节点数据的函数
+    } = props
+    return (
+        <div>
+            <p>{data.title}</p>
+            <ul>
+                {children.map((x, i) => (<li key={i}>{x}</li>))}
+            </ul>
+        </div>
+    )
+}
+```
+
 ### simply show | 简单显示
 
 for details go to [examples/basic](./examples/basic)
