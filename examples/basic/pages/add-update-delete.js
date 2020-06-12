@@ -4,15 +4,19 @@ import TreeRenderer from 'react-tree-renderer'
 class DefaultTemplate extends React.Component {
 
   render() {
-    const { data = {}, children = [], deleteMe, isRoot } = this.props
+    const { data = {}, children = [], addChildren, updateData, deleteMe, isRoot } = this.props
 
     return (
       <div>
-        <p>{data.title}</p>
+        <input value={data.title} onChange={e => updateData({
+          ...data,
+          title: e.target.value,
+        })} />
+        {!isRoot && <button onClick={() => deleteMe()}>x</button>}
         <ul>
           {children.map((x, i) => (<li key={i}>{x}</li>))}
         </ul>
-        {!isRoot && <button onClick={() => deleteMe()}>x</button>}
+        <button onClick={() => addChildren([{ title: 'newly added' }])}>+</button>
       </div>
     )
   }
@@ -27,21 +31,7 @@ export default class TestTree extends React.Component {
         children: [
           {
             title: 'test1',
-          },
-          {
-            title: 'test2',
-            children: [
-              {
-                title: 'test3',
-              },
-              {
-                title: 'test4',
-              },
-            ]
-          },
-          {
-            title: 'test5',
-          },
+          }
         ]
       }
     }

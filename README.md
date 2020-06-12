@@ -27,6 +27,8 @@ yarn add react-tree-renderer
 
 ### simply show | 简单显示
 
+for details go to [examples/basic](./examples/basic)
+
 ```
 import TreeRenderer from 'react-tree-renderer'
 
@@ -81,63 +83,30 @@ export default (props)=>(
 
 in this example, you can modify the titles and add new nodes | 在这个例子中，演示了修改每个节点的title和增加新节点
 
-Template | 模板
-
 ```
 import React from 'react'
+import TreeRenderer from 'react-tree-renderer'
 
-export default class DefaultTemplate extends React.Component {
-
-  //modify title | 修改title
-  handleUpdateTitle(e) {
-    // get updateData from props | 从props中获取updateData
-    const { data = {}, updateData, } = this.props
-    const title = e.target.value
-
-    // and call updateData when you need | 并使用updateData方法更新对应节点的数据
-    updateData({
-      ...data,
-      title
-    })
-  }
-
-  //add new node | 增加新节点
-  handleAddChild() {
-    const { data = {}, updateData, } = this.props
-    const { children = [] } = data
-
-    updateData({
-      ...data,
-      children: [
-        ...children,
-        { title: 'new' },
-      ]
-    })
-  }
+class DefaultTemplate extends React.Component {
 
   render() {
-    const { data = {}, children = [], } = this.props
-    
+    const { data = {}, children = [], addChildren, updateData, deleteMe, isRoot } = this.props
+
     return (
       <div>
-        <input value={data.title} onChange={this.handleUpdateTitle.bind(this)} />
+        <input value={data.title} onChange={e => updateData({
+          ...data,
+          title: e.target.value,
+        })} />
+        {!isRoot && <button onClick={() => deleteMe()}>x</button>}
         <ul>
           {children.map((x, i) => (<li key={i}>{x}</li>))}
         </ul>
-        <button onClick={this.handleAddChild.bind(this)}>+</button>
+        <button onClick={() => addChildren([{ title: 'newly added' }])}>+</button>
       </div>
     )
   }
 }
-```
-
-container | 容器
-
-```
-import React from 'react'
-
-import TreeRenderer from 'react-tree-renderer'
-import DefaultTemplate from './DefaultTemplate'
 
 export default class TestTree extends React.Component {
   constructor(props, ctx) {
