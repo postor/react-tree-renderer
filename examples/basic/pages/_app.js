@@ -2,7 +2,7 @@
 import Link from 'next/link'
 
 const pages = {
-  basic: '/index',
+  basic: '/',
   'update self': '/update-self',
   'add child': '/add-child',
   'delete self': '/delete-self',
