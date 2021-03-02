@@ -7,6 +7,7 @@ const pages = {
   'add child': '/add-child',
   'delete self': '/delete-self',
   'update parent': '/update-parent',
+  'event': '/event',
   'add/update/delete in one':'/add-update-delete'
 }
 
