@@ -13,8 +13,7 @@ With this you can easily customise a treeview, a json editor, or anything tree a
 ![screenshot](https://img.youtube.com/vi/P011GNWfDvs/0.jpg)
 watch on youtube https://youtu.be/P011GNWfDvs
 
-在线体验 | try online: https://postor.github.io/react-tree-renderer/
-codes: [examples\basic\pages](./examples/basic/pages)
+code && 在线体验 | try online: https://codesandbox.io/s/react-tree-renderer-iy07n
 
 
 ## usage | 使用
